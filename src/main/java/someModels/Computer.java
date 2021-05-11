@@ -1,20 +1,13 @@
 package someModels;
 
+import lombok.AllArgsConstructor;
+
+@AllArgsConstructor
 public class Computer {
-    private RAM ram;
+    private RandomAccesMemory randomAccesMemory;
     private Memory memory;
     private Processor processor;
     private Graphics graphics;
-    private OperationSystem os;
+    private OperationSystem operationSystem;
     private int price;
-
-    public Computer(RAM ram, Memory memory, Processor processor, Graphics graphics,
-                    OperationSystem os, int price) {
-        this.ram = ram;
-        this.memory = memory;
-        this.processor = processor;
-        this.graphics = graphics;
-        this.os = os;
-        this.price = price;
-    }
 }

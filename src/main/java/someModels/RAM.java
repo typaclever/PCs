@@ -1,11 +1,11 @@
 package someModels;
 
 public class RAM {
-    String brand;
-    String tireType;
-    int frequency;
-    int throughput;
-    int size;
+    private String brand;
+    private String tireType;
+    private int frequency;
+    private int throughput;
+    private int size;
 
     public RAM(String brand, String tireType, int frequency, int throughput, int size) {
         this.brand = brand;

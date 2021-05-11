@@ -1,5 +1,8 @@
 package someModels;
 
+import lombok.AllArgsConstructor;
+
+@AllArgsConstructor
 public class Memory {
     private String brand;
     private String type;
@@ -7,13 +10,4 @@ public class Memory {
     private int readSpeed;
     private int writeSpeed;
     private int size;
-
-    public Memory(String brand, String type, String connectionInterface, int readSpeed, int writeSpeed, int size) {
-        this.brand = brand;
-        this.type = type;
-        this.connectionInterface = connectionInterface;
-        this.readSpeed = readSpeed;
-        this.writeSpeed = writeSpeed;
-        this.size = size;
-    }
 }

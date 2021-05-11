@@ -1,11 +1,9 @@
 package someModels;
 
-public class Connection {
-    private String [] bands;
-    private String [] connections;
+import lombok.AllArgsConstructor;
 
-    public Connection(String[] bands, String[] connections) {
-        this.bands = bands;
-        this.connections = connections;
-    }
+@AllArgsConstructor
+public class Connection {
+    private String[] bands;
+    private String[] connections;
 }

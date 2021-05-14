@@ -7,7 +7,12 @@ import someModels.OperationSystem.OperationSystem;
 import someModels.Processor.Processor;
 import someModels.RandomAccesMemory.RandomAccessMemory;
 
-import javax.persistence.*;
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 @Entity
 @Data

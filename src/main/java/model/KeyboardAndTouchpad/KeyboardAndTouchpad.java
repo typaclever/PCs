@@ -1,4 +1,4 @@
-package someModels.Connection;
+package model.KeyboardAndTouchpad;
 
 import lombok.Data;
 
@@ -9,10 +9,11 @@ import javax.persistence.Id;
 
 @Data
 @Entity
-public class Connection {
+public class KeyboardAndTouchpad {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String bands;
-    private String connections;
+    private boolean numPad;
+    private boolean keyboardLight;
+    private float touchPadDiagonal;
 }

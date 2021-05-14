@@ -1,4 +1,4 @@
-package someModels.Display;
+package model.Processor;
 
 import lombok.Data;
 
@@ -7,15 +7,17 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-
 @Data
 @Entity
-public class Display {
+public class Processor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private float diagonal;
-    private String resolution;
-    private String matrix;
-    private int brightness;
+    private String brand;
+    private String series;
+    private String model;
+    private int numberOfCores;
+    private float baseFrequency;
+    private float maxFrequency;
+    private int cache;
 }

@@ -1,4 +1,4 @@
-package someModels.KeyboardAndTouchpad;
+package model.Display;
 
 import lombok.Data;
 
@@ -7,13 +7,15 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+
 @Data
 @Entity
-public class KeyboardAndTouchpad {
+public class Display {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private boolean numPad;
-    private boolean keyboardLight;
-    private float touchPadDiagonal;
+    private float diagonal;
+    private String resolution;
+    private String matrix;
+    private int brightness;
 }

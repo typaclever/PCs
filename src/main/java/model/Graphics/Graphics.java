@@ -1,4 +1,4 @@
-package someModels.Graphics;
+package model.Graphics;
 
 import lombok.Data;
 

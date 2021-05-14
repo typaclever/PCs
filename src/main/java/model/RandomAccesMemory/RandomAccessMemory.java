@@ -1,4 +1,4 @@
-package someModels.Processor;
+package model.RandomAccesMemory;
 
 import lombok.Data;
 
@@ -9,15 +9,13 @@ import javax.persistence.Id;
 
 @Data
 @Entity
-public class Processor {
+public class RandomAccessMemory {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    int id;
     private String brand;
-    private String series;
-    private String model;
-    private int numberOfCores;
-    private float baseFrequency;
-    private float maxFrequency;
-    private int cache;
+    private String tireType;
+    private int frequency;
+    private int throughput;
+    private int size;
 }

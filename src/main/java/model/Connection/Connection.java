@@ -1,4 +1,4 @@
-package someModels.RandomAccesMemory;
+package model.Connection;
 
 import lombok.Data;
 
@@ -9,13 +9,10 @@ import javax.persistence.Id;
 
 @Data
 @Entity
-public class RandomAccessMemory {
+public class Connection {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    int id;
-    private String brand;
-    private String tireType;
-    private int frequency;
-    private int throughput;
-    private int size;
+    private int id;
+    private String bands;
+    private String connections;
 }

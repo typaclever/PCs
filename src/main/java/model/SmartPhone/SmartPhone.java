@@ -1,22 +1,22 @@
-package someModels.Notebook;
+package model.SmartPhone;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import someModels.Computer.Computer;
-import someModels.Display.Display;
-import someModels.KeyboardAndTouchpad.KeyboardAndTouchpad;
+import model.Computer.Computer;
+import model.Connection.Connection;
+import model.Display.Display;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.OneToOne;
 
-@Data
 @EqualsAndHashCode(callSuper = true)
+@Data
 @Entity
-public class NoteBook extends Computer {
+public class SmartPhone extends Computer {
     @OneToOne(cascade = CascadeType.ALL)
     private Display display;
     @OneToOne(cascade = CascadeType.ALL)
-    private KeyboardAndTouchpad keyboardAndTouchpad;
+    private Connection connection;
     private int batterySize;
 }

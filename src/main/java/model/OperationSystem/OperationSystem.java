@@ -1,4 +1,4 @@
-package someModels.OperationSystem;
+package model.OperationSystem;
 
 import lombok.Data;
 

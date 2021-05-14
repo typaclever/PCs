@@ -1,9 +1,7 @@
 package repository.SessionFactory;
 
-import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
-import repository.SmartPhone.SmartPhoneInterface;
 import someModels.Computer.Computer;
 import someModels.Notebook.NoteBook;
 import someModels.SmartPhone.SmartPhone;

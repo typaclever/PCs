@@ -2,7 +2,7 @@ package repository.SmartPhone;
 
 import someModels.SmartPhone.SmartPhone;
 
-public interface SmartPhoneInterface {
+public interface SmartPhoneRepository {
     void save(SmartPhone smartPhone);
     void update(SmartPhone smartPhone);
     void delete(SmartPhone smartPhone);

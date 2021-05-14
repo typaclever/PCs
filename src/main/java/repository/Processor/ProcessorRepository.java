@@ -2,7 +2,7 @@ package repository.Processor;
 
 import someModels.Processor.Processor;
 
-public interface ProcessorInterface {
+public interface ProcessorRepository {
     void save(Processor processor);
     void update(Processor processor);
     void delete(Processor processor);

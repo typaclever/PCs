@@ -2,7 +2,7 @@ package repository.RandomAccessMemory;
 
 import someModels.RandomAccesMemory.RandomAccessMemory;
 
-public interface RandomAccessMemoryInterface {
+public interface RandomAccessMemoryRepository {
     void save(RandomAccessMemory randomAccessMemory);
     void update(RandomAccessMemory randomAccessMemory);
     void delete(RandomAccessMemory randomAccessMemory);

@@ -6,6 +6,7 @@ import model.memory.Memory;
 import model.operationSystem.OperationSystem;
 import model.processor.Processor;
 import model.randomAccesMemory.RandomAccessMemory;
+import model.user.User;
 
 import javax.persistence.*;
 import java.util.List;
@@ -26,5 +27,7 @@ public class Computer {
     private Graphics graphics;
     @OneToMany(cascade = CascadeType.PERSIST)
     private List<OperationSystem> operationSystems;
+    @ManyToOne(fetch = FetchType.LAZY)
+    private User user;
     private int price;
 }

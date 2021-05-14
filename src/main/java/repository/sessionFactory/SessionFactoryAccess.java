@@ -2,9 +2,9 @@ package repository.sessionFactory;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
-import model.Computer.Computer;
-import model.Notebook.NoteBook;
-import model.SmartPhone.SmartPhone;
+import model.computer.Computer;
+import model.noteBook.NoteBook;
+import model.smartPhone.SmartPhone;
 
 public class SessionFactoryAccess {
     private static SessionFactory sessionFactory;

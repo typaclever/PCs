@@ -1,7 +1,7 @@
-package model.User;
+package model.user;
 
 import lombok.Data;
-import model.Computer.Computer;
+import model.computer.Computer;
 
 import javax.persistence.*;
 import java.util.List;

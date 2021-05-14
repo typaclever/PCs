@@ -1,6 +1,6 @@
 package repository.memory;
 
-import model.Memory.Memory;
+import model.memory.Memory;
 
 public interface MemoryRepository {
     void save(Memory memory);

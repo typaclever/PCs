@@ -1,6 +1,6 @@
 package repository.computer;
 
-import model.Computer.Computer;
+import model.computer.Computer;
 
 public interface ComputerRepository {
     Computer save(Computer computer);

@@ -1,6 +1,6 @@
 package repository.noteBook;
 
-import model.Notebook.NoteBook;
+import model.noteBook.NoteBook;
 
 public interface NoteBookRepository {
     void save(NoteBook noteBook);

@@ -1,6 +1,6 @@
 package repository.graphics;
 
-import model.Graphics.Graphics;
+import model.graphics.Graphics;
 
 public interface GraphicsRepository {
     void save(Graphics graphics);

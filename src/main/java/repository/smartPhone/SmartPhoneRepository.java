@@ -1,6 +1,6 @@
 package repository.smartPhone;
 
-import model.SmartPhone.SmartPhone;
+import model.smartPhone.SmartPhone;
 
 public interface SmartPhoneRepository {
     void save(SmartPhone smartPhone);

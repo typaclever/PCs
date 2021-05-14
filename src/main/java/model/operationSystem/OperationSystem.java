@@ -1,4 +1,4 @@
-package model.Processor;
+package model.operationSystem;
 
 import lombok.Data;
 
@@ -9,15 +9,11 @@ import javax.persistence.Id;
 
 @Data
 @Entity
-public class Processor {
+public class OperationSystem {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String brand;
-    private String series;
-    private String model;
-    private int numberOfCores;
-    private float baseFrequency;
-    private float maxFrequency;
-    private int cache;
+    private String name;
+    private String version;
 }

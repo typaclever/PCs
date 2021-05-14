@@ -1,11 +1,11 @@
-package model.Computer;
+package model.computer;
 
 import lombok.Data;
-import model.Graphics.Graphics;
-import model.Memory.Memory;
-import model.OperationSystem.OperationSystem;
-import model.Processor.Processor;
-import model.RandomAccesMemory.RandomAccessMemory;
+import model.graphics.Graphics;
+import model.memory.Memory;
+import model.operationSystem.OperationSystem;
+import model.processor.Processor;
+import model.randomAccesMemory.RandomAccessMemory;
 
 import javax.persistence.*;
 import java.util.List;

@@ -1,4 +1,4 @@
-package model.Graphics;
+package model.display;
 
 import lombok.Data;
 
@@ -7,15 +7,15 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+
 @Data
 @Entity
-public class Graphics {
+public class Display {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String producerBrand;
-    private String type;
-    private String technologyBrand;
-    private int speed;
-    private int sizeMemory;
+    private float diagonal;
+    private String resolution;
+    private String matrix;
+    private int brightness;
 }

@@ -1,4 +1,4 @@
-package model.KeyboardAndTouchpad;
+package model.keyboardAndTouchpad;
 
 import lombok.Data;
 

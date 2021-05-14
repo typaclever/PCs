@@ -1,4 +1,4 @@
-package model.OperationSystem;
+package model.connection;
 
 import lombok.Data;
 
@@ -9,11 +9,10 @@ import javax.persistence.Id;
 
 @Data
 @Entity
-public class OperationSystem {
+public class Connection {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String brand;
-    private String name;
-    private String version;
+    private String bands;
+    private String connections;
 }

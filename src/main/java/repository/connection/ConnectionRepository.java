@@ -1,6 +1,6 @@
 package repository.connection;
 
-import model.Connection.Connection;
+import model.connection.Connection;
 
 public interface ConnectionRepository {
     void save(Connection connection);

@@ -1,6 +1,6 @@
 package repository.operationSystem;
 
-import model.OperationSystem.OperationSystem;
+import model.operationSystem.OperationSystem;
 
 public interface OperationSystemRepository {
     void save(OperationSystem operationSystem);

@@ -1,4 +1,4 @@
-package model.RandomAccesMemory;
+package model.randomAccesMemory;
 
 import lombok.Data;
 

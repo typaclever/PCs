@@ -1,6 +1,6 @@
 package repository.processor;
 
-import model.Processor.Processor;
+import model.processor.Processor;
 
 public interface ProcessorRepository {
     void save(Processor processor);

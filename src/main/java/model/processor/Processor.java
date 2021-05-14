@@ -1,4 +1,4 @@
-package model.Connection;
+package model.processor;
 
 import lombok.Data;
 
@@ -9,10 +9,15 @@ import javax.persistence.Id;
 
 @Data
 @Entity
-public class Connection {
+public class Processor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String bands;
-    private String connections;
+    private String brand;
+    private String series;
+    private String model;
+    private int numberOfCores;
+    private float baseFrequency;
+    private float maxFrequency;
+    private int cache;
 }

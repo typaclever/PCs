@@ -1,6 +1,6 @@
 package repository.randomAccessMemory;
 
-import model.RandomAccesMemory.RandomAccessMemory;
+import model.randomAccesMemory.RandomAccessMemory;
 
 public interface RandomAccessMemoryRepository {
     void save(RandomAccessMemory randomAccessMemory);

@@ -1,6 +1,6 @@
 package repository.display;
 
-import model.Display.Display;
+import model.display.Display;
 
 public interface DisplayRepository {
     void save(Display display);

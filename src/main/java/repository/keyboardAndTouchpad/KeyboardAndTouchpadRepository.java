@@ -1,6 +1,6 @@
 package repository.keyboardAndTouchpad;
 
-import model.KeyboardAndTouchpad.KeyboardAndTouchpad;
+import model.keyboardAndTouchpad.KeyboardAndTouchpad;
 
 public interface KeyboardAndTouchpadRepository {
     void save(KeyboardAndTouchpad keyboardAndTouchpad);

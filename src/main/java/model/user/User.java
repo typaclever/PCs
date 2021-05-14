@@ -12,8 +12,8 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String firstName;
-    private String lastName;
-    @OneToMany(cascade = CascadeType.PERSIST)
+    private String logIn;
+    private String password;
+    @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "user", fetch = FetchType.LAZY)
     private List<Computer> computers;
 }

@@ -3,8 +3,8 @@ package repository.smartPhone;
 import model.smartPhone.SmartPhone;
 
 public interface SmartPhoneRepository {
-    void save(SmartPhone smartPhone);
-    void update(SmartPhone smartPhone);
-    void delete(SmartPhone smartPhone);
+    SmartPhone save(SmartPhone smartPhone);
+    SmartPhone update(SmartPhone smartPhone);
+    SmartPhone delete(SmartPhone smartPhone);
     SmartPhone findById(int id);
 }

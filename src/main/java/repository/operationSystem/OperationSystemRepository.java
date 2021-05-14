@@ -3,8 +3,8 @@ package repository.operationSystem;
 import model.operationSystem.OperationSystem;
 
 public interface OperationSystemRepository {
-    void save(OperationSystem operationSystem);
-    void update(OperationSystem operationSystem);
-    void delete(OperationSystem operationSystem);
+    OperationSystem save(OperationSystem operationSystem);
+    OperationSystem update(OperationSystem operationSystem);
+    OperationSystem delete(OperationSystem operationSystem);
     OperationSystem findById(int id);
 }

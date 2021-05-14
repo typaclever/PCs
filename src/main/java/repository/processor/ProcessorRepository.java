@@ -3,8 +3,8 @@ package repository.processor;
 import model.processor.Processor;
 
 public interface ProcessorRepository {
-    void save(Processor processor);
-    void update(Processor processor);
-    void delete(Processor processor);
+    Processor save(Processor processor);
+    Processor update(Processor processor);
+    Processor delete(Processor processor);
     Processor findById(int id);
 }

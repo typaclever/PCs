@@ -1,9 +1,9 @@
-package service.randomAccesMemory.impl;
+package service.randomAccessMemory.impl;
 
 import model.randomAccesMemory.RandomAccessMemory;
 import repository.randomAccessMemory.RandomAccessMemoryRepository;
 import repository.randomAccessMemory.impl.RandomAccessMemoryRepositoryImpl;
-import service.randomAccesMemory.RandomAccessMemoryService;
+import service.randomAccessMemory.RandomAccessMemoryService;
 
 import java.util.List;
 

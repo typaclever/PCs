@@ -1,6 +1,7 @@
-package service.randomAccesMemory;
+package service.randomAccessMemory;
 
 import model.randomAccesMemory.RandomAccessMemory;
+import model.user.User;
 
 import java.util.List;
 

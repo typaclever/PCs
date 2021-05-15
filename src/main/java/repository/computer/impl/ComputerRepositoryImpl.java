@@ -40,9 +40,9 @@ public class ComputerRepositoryImpl implements ComputerRepository {
     }
 
     @Override
-    public List getAllComputers() {
+    public List<Computer> getAllComputers() {
         Session session = SessionFactoryAccess.getSessionFactory().openSession();
-        List computers = session.createQuery("from Computer").list();
+        List<Computer> computers = (List<Computer>) session.createQuery("from Computer").list();
         session.close();
         return computers;
     }

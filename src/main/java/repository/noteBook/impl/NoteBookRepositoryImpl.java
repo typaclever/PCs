@@ -47,7 +47,7 @@ public class NoteBookRepositoryImpl implements NoteBookRepository {
     }
 
     @Override
-    public List<NoteBook> getAllNote() {
+    public List<NoteBook> getAll() {
         Session session = SessionFactoryAccess.getSessionFactory().openSession();
         List<NoteBook> noteBooks = (List<NoteBook>) session.createQuery("from NoteBook").list();
         session.close();

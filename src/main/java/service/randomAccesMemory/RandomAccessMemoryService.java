@@ -4,7 +4,7 @@ import model.randomAccesMemory.RandomAccessMemory;
 
 import java.util.List;
 
-public interface RandomAccesMemoryService {
+public interface RandomAccessMemoryService {
     RandomAccessMemory findRandomAccessMemory(int id);
     RandomAccessMemory saveRandomAccessMemory(RandomAccessMemory randomAccessMemory);
     RandomAccessMemory deleteRandomAccessMemory(RandomAccessMemory randomAccessMemory);

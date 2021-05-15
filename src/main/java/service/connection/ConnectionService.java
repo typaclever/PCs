@@ -7,8 +7,8 @@ import java.util.List;
 
 public interface ConnectionService {
     Connection findConnection(int id);
-    Connection saveConnection(User user);
-    Connection deleteConnection(User user);
-    Connection updateConnection(User user);
+    Connection saveConnection(Connection connection);
+    Connection deleteConnection(Connection connection);
+    Connection updateConnection(Connection connection);
     List<Connection> getAllConnections();
 }

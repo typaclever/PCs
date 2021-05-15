@@ -9,5 +9,5 @@ public interface NoteBookRepository {
     NoteBook update(NoteBook noteBook);
     NoteBook delete(NoteBook noteBook);
     NoteBook findById(int id);
-    List<NoteBook> getAllNote();
+    List<NoteBook> getAll();
 }

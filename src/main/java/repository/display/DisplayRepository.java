@@ -9,5 +9,5 @@ public interface DisplayRepository {
     Display update(Display display);
     Display delete(Display display);
     Display findById(int id);
-    List<Display> getAllDisplays();
+    List<Display> getAll();
 }

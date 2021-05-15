@@ -1,56 +1,56 @@
-package repository.processor.impl;
+package repository.user.impl;
 
-import model.processor.Processor;
+import model.user.User;
 import org.hibernate.Session;
-import repository.processor.ProcessorRepository;
 import repository.sessionFactory.SessionFactoryAccess;
+import repository.user.UserRepository;
 
 import java.util.List;
 
-public class ProcessorRepositoryImpl implements ProcessorRepository {
+public class UserRepositoryImpl implements UserRepository{
     @Override
-    public Processor save(Processor processor) {
+    public User save(User user) {
         Session session = SessionFactoryAccess.getSessionFactory().openSession();
         session.beginTransaction();
-        session.save(processor);
+        session.save(user);
         session.getTransaction().commit();
         session.close();
-        return processor;
+        return user;
     }
 
     @Override
-    public Processor update(Processor processor) {
+    public User update(User user) {
         Session session = SessionFactoryAccess.getSessionFactory().openSession();
         session.beginTransaction();
-        session.update(processor);
+        session.update(user);
         session.getTransaction().commit();
         session.close();
-        return processor;
+        return user;
     }
 
     @Override
-    public Processor delete(Processor processor) {
+    public User delete(User user) {
         Session session = SessionFactoryAccess.getSessionFactory().openSession();
         session.beginTransaction();
-        session.delete(processor);
+        session.delete(user);
         session.getTransaction().commit();
         session.close();
-        return processor;
+        return user;
     }
 
     @Override
-    public Processor findById(int id) {
+    public User findById(int id) {
         Session session = SessionFactoryAccess.getSessionFactory().openSession();
-        Processor processor = session.get(Processor.class, id);
+        User user = session.get(User.class, id);
         session.close();
-        return processor;
+        return user;
     }
 
     @Override
-    public List<Processor> getAll() {
+    public List<User> findAll() {
         Session session = SessionFactoryAccess.getSessionFactory().openSession();
-        List<Processor> processors = (List<Processor>) session.createQuery("from Processor").list();
+        List<User> users = (List<User>) session.createQuery("from User").list();
         session.close();
-        return processors;
+        return users;
     }
 }

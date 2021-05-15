@@ -9,5 +9,5 @@ public interface ConnectionRepository {
     Connection update(Connection connection);
     Connection delete(Connection connection);
     Connection findById(int id);
-    List<Connection> getAllConnections();
+    List<Connection> getAll();
 }

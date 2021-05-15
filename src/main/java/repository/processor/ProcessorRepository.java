@@ -9,5 +9,5 @@ public interface ProcessorRepository {
     Processor update(Processor processor);
     Processor delete(Processor processor);
     Processor findById(int id);
-    List<Processor> getAllProcessor();
+    List<Processor> getAll();
 }

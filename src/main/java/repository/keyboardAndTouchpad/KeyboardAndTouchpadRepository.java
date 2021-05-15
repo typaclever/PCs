@@ -9,5 +9,5 @@ public interface KeyboardAndTouchpadRepository {
     KeyboardAndTouchpad update(KeyboardAndTouchpad keyboardAndTouchpad);
     KeyboardAndTouchpad delete(KeyboardAndTouchpad keyboardAndTouchpad);
     KeyboardAndTouchpad findById(int id);
-    List<KeyboardAndTouchpad> getAllKeyboardAndTouchpads();
+    List<KeyboardAndTouchpad> getAll();
 }

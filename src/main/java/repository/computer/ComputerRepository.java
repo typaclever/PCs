@@ -8,6 +8,6 @@ public interface ComputerRepository {
     Computer save(Computer computer);
     Computer update(Computer computer);
     Computer delete(Computer computer);
-    List<Computer> getAllComputers();
+    List<Computer> getAll();
     Computer findById(int id);
 }

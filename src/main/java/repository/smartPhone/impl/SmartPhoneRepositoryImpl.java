@@ -47,7 +47,7 @@ public class SmartPhoneRepositoryImpl implements SmartPhoneRepository{
     }
 
     @Override
-    public List<SmartPhone> getAllSmartphones() {
+    public List<SmartPhone> getAll() {
         Session session = SessionFactoryAccess.getSessionFactory().openSession();
         List<SmartPhone> smartPhones = (List<SmartPhone>) session.createQuery("from SmartPhone").list();
         session.close();

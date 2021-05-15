@@ -47,7 +47,7 @@ public class ConnectionRepositoryImpl implements ConnectionRepository {
     }
 
     @Override
-    public List<Connection> getAllConnections() {
+    public List<Connection> getAll() {
         Session session = SessionFactoryAccess.getSessionFactory().openSession();
         List<Connection> connections = (List<Connection>) session.createQuery("from Connection").list();
         session.close();

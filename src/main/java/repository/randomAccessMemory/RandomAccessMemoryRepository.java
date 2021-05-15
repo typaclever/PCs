@@ -9,5 +9,5 @@ public interface RandomAccessMemoryRepository {
     RandomAccessMemory update(RandomAccessMemory randomAccessMemory);
     RandomAccessMemory delete(RandomAccessMemory randomAccessMemory);
     RandomAccessMemory findById(int id);
-    List<RandomAccessMemory> getAllRandomAccessMemories();
+    List<RandomAccessMemory> getAll();
 }

@@ -47,7 +47,7 @@ public class RandomAccessMemoryRepositoryImpl implements RandomAccessMemoryRepos
     }
 
     @Override
-    public List<RandomAccessMemory> getAllRandomAccessMemories() {
+    public List<RandomAccessMemory> getAll() {
         Session session = SessionFactoryAccess.getSessionFactory().openSession();
         List<RandomAccessMemory> randomAccessMemories = (List<RandomAccessMemory>) session.
                 createQuery("from RandomAccessMemory").list();

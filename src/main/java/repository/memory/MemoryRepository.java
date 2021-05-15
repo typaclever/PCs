@@ -9,5 +9,5 @@ public interface MemoryRepository {
     Memory update(Memory memory);
     Memory delete(Memory memory);
     Memory findById(int id);
-    List<Memory> getAllMemories();
+    List<Memory> getAll();
 }

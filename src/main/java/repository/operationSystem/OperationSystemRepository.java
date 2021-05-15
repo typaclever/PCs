@@ -9,5 +9,5 @@ public interface OperationSystemRepository {
     OperationSystem update(OperationSystem operationSystem);
     OperationSystem delete(OperationSystem operationSystem);
     OperationSystem findById(int id);
-    List<OperationSystem> getAllOperationSystems();
+    List<OperationSystem> getAll();
 }

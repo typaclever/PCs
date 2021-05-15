@@ -9,5 +9,5 @@ public interface GraphicsRepository {
     Graphics update(Graphics graphics);
     Graphics delete(Graphics graphics);
     Graphics findById(int id);
-    List<Graphics> getAllGraphics();
+    List<Graphics> getAll();
 }

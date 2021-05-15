@@ -47,7 +47,7 @@ public class ProcessorRepositoryImpl implements ProcessorRepository {
     }
 
     @Override
-    public List<Processor> getAllProcessor() {
+    public List<Processor> getAll() {
         Session session = SessionFactoryAccess.getSessionFactory().openSession();
         List<Processor> processors = (List<Processor>) session.createQuery("from Processor").list();
         session.close();

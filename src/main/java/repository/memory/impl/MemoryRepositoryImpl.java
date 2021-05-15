@@ -46,7 +46,7 @@ public class MemoryRepositoryImpl implements MemoryRepository{
     }
 
     @Override
-    public List getAllMemories() {
+    public List getAll() {
         Session session = SessionFactoryAccess.getSessionFactory().openSession();
         List memories = session.createQuery("from Memory").list();
         session.close();

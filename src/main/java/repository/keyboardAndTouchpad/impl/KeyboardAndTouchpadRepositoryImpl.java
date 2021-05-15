@@ -47,7 +47,7 @@ public class KeyboardAndTouchpadRepositoryImpl implements KeyboardAndTouchpadRep
     }
 
     @Override
-    public List<KeyboardAndTouchpad> getAllKeyboardAndTouchpads() {
+    public List<KeyboardAndTouchpad> getAll() {
         Session session = SessionFactoryAccess.getSessionFactory().openSession();
         List<KeyboardAndTouchpad> keyboardAndTouchpads = (List<KeyboardAndTouchpad>) session.
                 createQuery("from KeyboardAndTouchpad").list();

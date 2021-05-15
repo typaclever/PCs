@@ -9,5 +9,5 @@ public interface SmartPhoneRepository {
     SmartPhone update(SmartPhone smartPhone);
     SmartPhone delete(SmartPhone smartPhone);
     SmartPhone findById(int id);
-    List<SmartPhone> getAllSmartphones();
+    List<SmartPhone> getAll();
 }

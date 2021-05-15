@@ -47,7 +47,7 @@ public class UserRepositoryImpl implements UserRepository{
     }
 
     @Override
-    public List<User> findAllUsers() {
+    public List<User> findAll() {
         Session session = SessionFactoryAccess.getSessionFactory().openSession();
         List<User> users = (List<User>) session.createQuery("from User").list();
         session.close();

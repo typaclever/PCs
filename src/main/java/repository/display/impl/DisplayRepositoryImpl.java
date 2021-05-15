@@ -47,7 +47,7 @@ public class DisplayRepositoryImpl implements DisplayRepository{
     }
 
     @Override
-    public List<Display> getAllDisplays() {
+    public List<Display> getAll() {
         Session session = SessionFactoryAccess.getSessionFactory().openSession();
         List<Display> displays = (List<Display>) session.createQuery("from Display").list();
         session.close();

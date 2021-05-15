@@ -47,7 +47,7 @@ public class OperationSystemRepositoryImpl implements OperationSystemRepository{
     }
 
     @Override
-    public List<OperationSystem> getAllOperationSystems() {
+    public List<OperationSystem> getAll() {
         Session session = SessionFactoryAccess.getSessionFactory().openSession();
         List<OperationSystem> operationSystems = (List<OperationSystem>)
                 session.createQuery("from OperationSystem").list();

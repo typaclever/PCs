@@ -47,7 +47,7 @@ public class GraphicsRepositoryImpl implements GraphicsRepository {
     }
 
     @Override
-    public List<Graphics> getAllGraphics() {
+    public List<Graphics> getAll() {
         Session session = SessionFactoryAccess.getSessionFactory().openSession();
         List<Graphics> graphics = (List<Graphics>) session.createQuery("from Graphics").list();
         session.close();

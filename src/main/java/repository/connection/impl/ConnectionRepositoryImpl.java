@@ -5,7 +5,6 @@ import org.hibernate.Session;
 import repository.connection.ConnectionRepository;
 import repository.sessionFactory.SessionFactoryAccess;
 
-import javax.persistence.Query;
 import java.util.List;
 
 public class ConnectionRepositoryImpl implements ConnectionRepository {
@@ -48,9 +47,9 @@ public class ConnectionRepositoryImpl implements ConnectionRepository {
     }
 
     @Override
-    public List getAllConnections() {
+    public List<Connection> getAllConnections() {
         Session session = SessionFactoryAccess.getSessionFactory().openSession();
-        List connections = session.createQuery("from Connection").list();
+        List<Connection> connections = (List<Connection>) session.createQuery("from Connection").list();
         session.close();
         return connections;
     }

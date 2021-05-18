@@ -1,14 +1,18 @@
 package service.processor.impl;
 
+import lombok.Data;
+import lombok.NonNull;
 import model.processor.Processor;
 import repository.processor.ProcessorRepository;
-import repository.processor.impl.ProcessorRepositoryImpl;
 import service.processor.ProcessorService;
 
 import java.util.List;
 
+@Data
 public class ProcessorServiceImpl implements ProcessorService {
-    private ProcessorRepository processorRepository = new ProcessorRepositoryImpl();
+    @NonNull
+    private ProcessorRepository processorRepository;
+
     @Override
     public Processor findProcessor(int id) {
         return processorRepository.findById(id);

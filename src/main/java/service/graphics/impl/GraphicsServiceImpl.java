@@ -1,14 +1,18 @@
 package service.graphics.impl;
 
+import lombok.Data;
+import lombok.NonNull;
 import model.graphics.Graphics;
 import repository.graphics.GraphicsRepository;
-import repository.graphics.impl.GraphicsRepositoryImpl;
 import service.graphics.GraphicsService;
 
 import java.util.List;
 
+@Data
 public class GraphicsServiceImpl implements GraphicsService {
-    private GraphicsRepository graphicsRepository = new GraphicsRepositoryImpl();
+    @NonNull
+    private GraphicsRepository graphicsRepository;
+
     @Override
     public Graphics findGraphics(int id) {
         return graphicsRepository.findById(id);

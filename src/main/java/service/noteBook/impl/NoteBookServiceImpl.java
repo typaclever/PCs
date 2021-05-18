@@ -1,14 +1,18 @@
 package service.noteBook.impl;
 
+import lombok.Data;
+import lombok.NonNull;
 import model.noteBook.NoteBook;
 import repository.noteBook.NoteBookRepository;
-import repository.noteBook.impl.NoteBookRepositoryImpl;
 import service.noteBook.NoteBookService;
 
 import java.util.List;
 
+@Data
 public class NoteBookServiceImpl implements NoteBookService {
-    private NoteBookRepository noteBookRepository = new NoteBookRepositoryImpl();
+    @NonNull
+    private NoteBookRepository noteBookRepository;
+
     @Override
     public NoteBook findNoteBook(int id) {
         return noteBookRepository.findById(id);

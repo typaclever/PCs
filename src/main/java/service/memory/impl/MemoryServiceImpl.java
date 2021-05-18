@@ -1,14 +1,18 @@
 package service.memory.impl;
 
+import lombok.Data;
+import lombok.NonNull;
 import model.memory.Memory;
 import repository.memory.MemoryRepository;
-import repository.memory.impl.MemoryRepositoryImpl;
 import service.memory.MemoryService;
 
 import java.util.List;
 
+@Data
 public class MemoryServiceImpl implements MemoryService {
-    private MemoryRepository memoryRepository = new MemoryRepositoryImpl();
+    @NonNull
+    private MemoryRepository memoryRepository;
+
     @Override
     public Memory findMemory(int id) {
         return memoryRepository.findById(id);

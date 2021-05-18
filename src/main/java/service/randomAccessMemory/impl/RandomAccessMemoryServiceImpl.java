@@ -1,14 +1,18 @@
 package service.randomAccessMemory.impl;
 
+import lombok.Data;
+import lombok.NonNull;
 import model.randomAccesMemory.RandomAccessMemory;
 import repository.randomAccessMemory.RandomAccessMemoryRepository;
-import repository.randomAccessMemory.impl.RandomAccessMemoryRepositoryImpl;
 import service.randomAccessMemory.RandomAccessMemoryService;
 
 import java.util.List;
 
+@Data
 public class RandomAccessMemoryServiceImpl implements RandomAccessMemoryService {
-    private RandomAccessMemoryRepository repository = new RandomAccessMemoryRepositoryImpl();
+    @NonNull
+    private RandomAccessMemoryRepository repository;
+
     @Override
     public RandomAccessMemory findRandomAccessMemory(int id) {
         return repository.findById(id);

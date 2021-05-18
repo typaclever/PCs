@@ -1,14 +1,18 @@
 package service.keyboardAndTouchpad.impl;
 
+import lombok.Data;
+import lombok.NonNull;
 import model.keyboardAndTouchpad.KeyboardAndTouchpad;
 import repository.keyboardAndTouchpad.KeyboardAndTouchpadRepository;
-import repository.keyboardAndTouchpad.impl.KeyboardAndTouchpadRepositoryImpl;
 import service.keyboardAndTouchpad.KeyboardAndTouchpadService;
 
 import java.util.List;
 
+@Data
 public class KeyboardAndTouchpadServiceImpl implements KeyboardAndTouchpadService {
-    private KeyboardAndTouchpadRepository keyboardAndTouchpadRepository = new KeyboardAndTouchpadRepositoryImpl();
+    @NonNull
+    private KeyboardAndTouchpadRepository keyboardAndTouchpadRepository;
+
     @Override
     public KeyboardAndTouchpad findKeyboardAndTouchpad(int id) {
         return keyboardAndTouchpadRepository.findById(id);

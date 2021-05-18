@@ -1,14 +1,19 @@
 package service.computer.impl;
 
+import lombok.Data;
+import lombok.NonNull;
 import model.computer.Computer;
 import repository.computer.ComputerRepository;
-import repository.computer.impl.ComputerRepositoryImpl;
 import service.computer.ComputerService;
 
 import java.util.List;
 
+@Data
 public class ComputerServiceImpl implements ComputerService {
-    private ComputerRepository computerRepository = new ComputerRepositoryImpl();
+
+    @NonNull
+    private ComputerRepository computerRepository;
+
     @Override
     public Computer findComputer(int id) {
         return computerRepository.findById(id);

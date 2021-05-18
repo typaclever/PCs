@@ -1,14 +1,18 @@
 package service.display.impl;
 
+import lombok.Data;
+import lombok.NonNull;
 import model.display.Display;
 import repository.display.DisplayRepository;
-import repository.display.impl.DisplayRepositoryImpl;
 import service.display.DisplayService;
 
 import java.util.List;
 
+@Data
 public class DisplayServiceImpl implements DisplayService {
-    private DisplayRepository displayRepository = new DisplayRepositoryImpl();
+    @NonNull
+    private DisplayRepository displayRepository;
+
     @Override
     public Display findDisplay(int id) {
         return displayRepository.findById(id);

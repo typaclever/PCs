@@ -1,5 +1,7 @@
 package service.connection.impl;
 
+import lombok.Data;
+import lombok.NonNull;
 import model.connection.Connection;
 import repository.connection.ConnectionRepository;
 import repository.connection.impl.ConnectionRepositoryImpl;
@@ -7,8 +9,10 @@ import service.connection.ConnectionService;
 
 import java.util.List;
 
+@Data
 public class ConnectionServiceImpl implements ConnectionService {
-    private ConnectionRepository connectionRepository = new ConnectionRepositoryImpl();
+    @NonNull
+    private ConnectionRepository connectionRepository;
 
     @Override
     public Connection findConnection(int id) {

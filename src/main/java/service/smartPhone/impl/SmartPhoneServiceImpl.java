@@ -1,14 +1,18 @@
 package service.smartPhone.impl;
 
+import lombok.Data;
+import lombok.NonNull;
 import model.smartPhone.SmartPhone;
 import repository.smartPhone.SmartPhoneRepository;
-import repository.smartPhone.impl.SmartPhoneRepositoryImpl;
 import service.smartPhone.SmartPhoneService;
 
 import java.util.List;
 
+@Data
 public class SmartPhoneServiceImpl implements SmartPhoneService {
-    private SmartPhoneRepository repository = new SmartPhoneRepositoryImpl();
+    @NonNull
+    private SmartPhoneRepository repository;
+
     @Override
     public SmartPhone findSmartPhone(int id) {
         return repository.findById(id);

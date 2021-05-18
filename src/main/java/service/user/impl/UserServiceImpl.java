@@ -1,14 +1,18 @@
 package service.user.impl;
 
+import lombok.Data;
+import lombok.NonNull;
 import model.user.User;
 import repository.user.UserRepository;
-import repository.user.impl.UserRepositoryImpl;
 import service.user.UserService;
 
 import java.util.List;
 
+@Data
 public class UserServiceImpl implements UserService {
-    private UserRepository repository = new UserRepositoryImpl();
+    @NonNull
+    private UserRepository repository;
+
     @Override
     public User findUser(int id) {
         return repository.findById(id);

@@ -1,14 +1,18 @@
 package service.operationSystem.impl;
 
+import lombok.Data;
+import lombok.NonNull;
 import model.operationSystem.OperationSystem;
 import repository.operationSystem.OperationSystemRepository;
-import repository.operationSystem.impl.OperationSystemRepositoryImpl;
 import service.operationSystem.OperationSystemService;
 
 import java.util.List;
 
+@Data
 public class OperationSystemServiceImpl implements OperationSystemService {
-    private OperationSystemRepository operationSystemRepository = new OperationSystemRepositoryImpl();
+    @NonNull
+    private OperationSystemRepository operationSystemRepository;
+
     @Override
     public OperationSystem findOperationSystem(int id) {
         return operationSystemRepository.findById(id);

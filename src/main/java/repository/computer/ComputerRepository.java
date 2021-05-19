@@ -1,7 +1,6 @@
 package repository.computer;
 
 import model.computer.Computer;
-
 import java.util.List;
 
 public interface ComputerRepository {

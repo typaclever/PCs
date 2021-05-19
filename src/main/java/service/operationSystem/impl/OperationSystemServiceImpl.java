@@ -2,6 +2,7 @@ package service.operationSystem.impl;
 
 import lombok.Data;
 import lombok.NonNull;
+import model.computer.Computer;
 import model.operationSystem.OperationSystem;
 import repository.operationSystem.OperationSystemRepository;
 import service.operationSystem.OperationSystemService;

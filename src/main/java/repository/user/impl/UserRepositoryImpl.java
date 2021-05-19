@@ -1,5 +1,6 @@
 package repository.user.impl;
 
+import model.computer.Computer;
 import model.user.User;
 import org.hibernate.Session;
 import repository.sessionFactory.SessionFactoryAccess;
@@ -39,7 +40,7 @@ public class UserRepositoryImpl implements UserRepository{
     }
 
     @Override
-    public User findById(int id) {
+    public User findById(String id) {
         Session session = SessionFactoryAccess.getSessionFactory().openSession();
         User user = session.get(User.class, id);
         session.close();

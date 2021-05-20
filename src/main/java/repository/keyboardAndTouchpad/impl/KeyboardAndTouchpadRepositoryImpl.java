@@ -1,10 +1,13 @@
 package repository.keyboardAndTouchpad.impl;
 
+import Exeptions.keyboardAndTouchpad.KeyboardAndTouchpadDeleteException;
+import Exeptions.keyboardAndTouchpad.KeyboardAndTouchpadUpdateException;
 import model.keyboardAndTouchpad.KeyboardAndTouchpad;
 import org.hibernate.Session;
 import repository.keyboardAndTouchpad.KeyboardAndTouchpadRepository;
 import repository.sessionFactory.SessionFactoryAccess;
 
+import javax.persistence.OptimisticLockException;
 import java.util.List;
 
 public class KeyboardAndTouchpadRepositoryImpl implements KeyboardAndTouchpadRepository {
@@ -19,17 +22,24 @@ public class KeyboardAndTouchpadRepositoryImpl implements KeyboardAndTouchpadRep
     }
 
     @Override
-    public KeyboardAndTouchpad update(KeyboardAndTouchpad keyboardAndTouchpad) {
+    public KeyboardAndTouchpad update(KeyboardAndTouchpad keyboardAndTouchpad) throws KeyboardAndTouchpadUpdateException {
         Session session = SessionFactoryAccess.getSessionFactory().openSession();
         session.beginTransaction();
         session.update(keyboardAndTouchpad);
-        session.getTransaction().commit();
+        try {
+            session.getTransaction().commit();
+        } catch (OptimisticLockException e) {
+            throw new KeyboardAndTouchpadUpdateException("Error while updating Display object");
+        }
         session.close();
         return keyboardAndTouchpad;
     }
 
     @Override
-    public KeyboardAndTouchpad delete(KeyboardAndTouchpad keyboardAndTouchpad) {
+    public KeyboardAndTouchpad delete(KeyboardAndTouchpad keyboardAndTouchpad) throws KeyboardAndTouchpadDeleteException {
+        if (findById(keyboardAndTouchpad.getId())==null){
+            throw new KeyboardAndTouchpadDeleteException("There is no Display object with such an id");
+        }
         Session session = SessionFactoryAccess.getSessionFactory().openSession();
         session.beginTransaction();
         session.delete(keyboardAndTouchpad);

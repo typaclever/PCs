@@ -1,10 +1,13 @@
 package repository.noteBook.impl;
 
+import Exeptions.noteBook.NoteBookDeleteException;
+import Exeptions.noteBook.NoteBookUpdateException;
 import model.noteBook.NoteBook;
 import org.hibernate.Session;
 import repository.noteBook.NoteBookRepository;
 import repository.sessionFactory.SessionFactoryAccess;
 
+import javax.persistence.OptimisticLockException;
 import java.util.List;
 
 public class NoteBookRepositoryImpl implements NoteBookRepository {
@@ -19,17 +22,24 @@ public class NoteBookRepositoryImpl implements NoteBookRepository {
     }
 
     @Override
-    public NoteBook update(NoteBook noteBook) {
+    public NoteBook update(NoteBook noteBook) throws NoteBookUpdateException {
         Session session = SessionFactoryAccess.getSessionFactory().openSession();
         session.beginTransaction();
         session.update(noteBook);
-        session.getTransaction().commit();
+        try {
+            session.getTransaction().commit();
+        } catch (OptimisticLockException e) {
+            throw new NoteBookUpdateException("Error while updating NoteBook object");
+        }
         session.close();
         return noteBook;
     }
 
     @Override
-    public NoteBook delete(NoteBook noteBook) {
+    public NoteBook delete(NoteBook noteBook) throws NoteBookDeleteException {
+        if (findById(noteBook.getId()) == null) {
+            throw new NoteBookDeleteException("There is no NoteBook object with such an id");
+        }
         Session session = SessionFactoryAccess.getSessionFactory().openSession();
         session.beginTransaction();
         session.delete(noteBook);

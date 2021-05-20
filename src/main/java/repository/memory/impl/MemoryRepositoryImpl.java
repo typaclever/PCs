@@ -1,10 +1,13 @@
 package repository.memory.impl;
 
+import Exeptions.memory.MemoryDeleteException;
+import Exeptions.memory.MemoryUpdateException;
 import model.memory.Memory;
 import org.hibernate.Session;
 import repository.memory.MemoryRepository;
 import repository.sessionFactory.SessionFactoryAccess;
 
+import javax.persistence.OptimisticLockException;
 import java.util.List;
 
 public class MemoryRepositoryImpl implements MemoryRepository{
@@ -18,17 +21,24 @@ public class MemoryRepositoryImpl implements MemoryRepository{
     }
 
     @Override
-    public Memory update(Memory memory) {
+    public Memory update(Memory memory) throws MemoryUpdateException {
         Session session = SessionFactoryAccess.getSessionFactory().openSession();
         session.beginTransaction();
         session.update(memory);
-        session.getTransaction().commit();
+        try {
+            session.getTransaction().commit();
+        } catch (OptimisticLockException e) {
+            throw new MemoryUpdateException("Error while updating Memory object");
+        }
         session.close();
         return memory;
     }
 
     @Override
-    public Memory delete(Memory memory) {
+    public Memory delete(Memory memory) throws MemoryDeleteException {
+        if (findById(memory.getId()) == null) {
+            throw new MemoryDeleteException("There is no Memory object with such an id");
+        }
         Session session = SessionFactoryAccess.getSessionFactory().openSession();
         session.beginTransaction();
         session.delete(memory);

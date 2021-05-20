@@ -1,10 +1,13 @@
 package repository.smartPhone.impl;
 
+import Exeptions.smartPhone.SmartPhoneDeleteException;
+import Exeptions.smartPhone.SmartPhoneUpdateException;
 import model.smartPhone.SmartPhone;
 import org.hibernate.Session;
 import repository.sessionFactory.SessionFactoryAccess;
 import repository.smartPhone.SmartPhoneRepository;
 
+import javax.persistence.OptimisticLockException;
 import java.util.List;
 
 public class SmartPhoneRepositoryImpl implements SmartPhoneRepository{
@@ -19,17 +22,24 @@ public class SmartPhoneRepositoryImpl implements SmartPhoneRepository{
     }
 
     @Override
-    public SmartPhone update(SmartPhone smartPhone) {
+    public SmartPhone update(SmartPhone smartPhone) throws SmartPhoneUpdateException {
         Session session = SessionFactoryAccess.getSessionFactory().openSession();
         session.beginTransaction();
         session.update(smartPhone);
-        session.getTransaction().commit();
+        try {
+            session.getTransaction().commit();
+        } catch (OptimisticLockException e) {
+            throw new SmartPhoneUpdateException("Error while updating SmartPhone object");
+        }
         session.close();
         return smartPhone;
     }
 
     @Override
-    public SmartPhone delete(SmartPhone smartPhone) {
+    public SmartPhone delete(SmartPhone smartPhone) throws SmartPhoneDeleteException {
+        if (findById(smartPhone.getId()) == null) {
+            throw new SmartPhoneDeleteException("There is no SmartPhone object with such an id");
+        }
         Session session = SessionFactoryAccess.getSessionFactory().openSession();
         session.beginTransaction();
         session.delete(smartPhone);

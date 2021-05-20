@@ -16,6 +16,6 @@ public class Graphics {
     private String producerBrand;
     private String type;
     private String technologyBrand;
-    private int speed;
+    private int tireDigitCapacity;
     private int sizeMemory;
 }

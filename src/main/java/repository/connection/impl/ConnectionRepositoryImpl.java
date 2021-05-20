@@ -1,10 +1,13 @@
 package repository.connection.impl;
 
+import Exeptions.computer.ComputerDeleteException;
+import Exeptions.connection.ConnectionUpdateException;
 import model.connection.Connection;
 import org.hibernate.Session;
 import repository.connection.ConnectionRepository;
 import repository.sessionFactory.SessionFactoryAccess;
 
+import javax.persistence.OptimisticLockException;
 import java.util.List;
 
 public class ConnectionRepositoryImpl implements ConnectionRepository {
@@ -19,17 +22,24 @@ public class ConnectionRepositoryImpl implements ConnectionRepository {
     }
 
     @Override
-    public Connection update(Connection connection) {
+    public Connection update(Connection connection) throws ConnectionUpdateException {
         Session session = SessionFactoryAccess.getSessionFactory().openSession();
         session.beginTransaction();
         session.update(connection);
-        session.getTransaction().commit();
+        try {
+            session.getTransaction().commit();
+        }catch (OptimisticLockException e){
+            throw new ConnectionUpdateException("Error while updating Connection object");
+        }
         session.close();
         return connection;
     }
 
     @Override
-    public Connection delete(Connection connection) {
+    public Connection delete(Connection connection) throws ComputerDeleteException {
+        if (findById(connection.getId()) == null){
+            throw new ComputerDeleteException("There is no connection object with such an id");
+        }
         Session session = SessionFactoryAccess.getSessionFactory().openSession();
         session.beginTransaction();
         session.delete(connection);

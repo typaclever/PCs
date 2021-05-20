@@ -1,10 +1,13 @@
 package repository.processor.impl;
 
+import Exeptions.processor.ProcessorDeleteException;
+import Exeptions.processor.ProcessorUpdateException;
 import model.processor.Processor;
 import org.hibernate.Session;
 import repository.processor.ProcessorRepository;
 import repository.sessionFactory.SessionFactoryAccess;
 
+import javax.persistence.OptimisticLockException;
 import java.util.List;
 
 public class ProcessorRepositoryImpl implements ProcessorRepository {
@@ -19,17 +22,24 @@ public class ProcessorRepositoryImpl implements ProcessorRepository {
     }
 
     @Override
-    public Processor update(Processor processor) {
+    public Processor update(Processor processor) throws ProcessorUpdateException {
         Session session = SessionFactoryAccess.getSessionFactory().openSession();
         session.beginTransaction();
         session.update(processor);
-        session.getTransaction().commit();
+        try {
+            session.getTransaction().commit();
+        } catch (OptimisticLockException e) {
+            throw new ProcessorUpdateException("Error while updating Processor object");
+        }
         session.close();
         return processor;
     }
 
     @Override
-    public Processor delete(Processor processor) {
+    public Processor delete(Processor processor) throws ProcessorDeleteException {
+        if (findById(processor.getId()) == null) {
+            throw new ProcessorDeleteException("There is no Processor object with such an id");
+        }
         Session session = SessionFactoryAccess.getSessionFactory().openSession();
         session.beginTransaction();
         session.delete(processor);

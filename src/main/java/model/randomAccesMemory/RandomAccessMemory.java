@@ -11,7 +11,6 @@ import javax.persistence.Id;
 @Entity
 public class RandomAccessMemory {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
     private String brand;
     private String tireType;

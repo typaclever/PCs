@@ -1,5 +1,7 @@
 package service.graphics.impl;
 
+import Exeptions.graphics.GraphicsDeleteException;
+import Exeptions.graphics.GraphicsUpdateException;
 import lombok.Data;
 import lombok.NonNull;
 import model.graphics.Graphics;
@@ -24,13 +26,23 @@ public class GraphicsServiceImpl implements GraphicsService {
     }
 
     @Override
-    public Graphics deleteGraphics(Graphics graphics) {
-        return graphicsRepository.delete(graphics);
+    public Graphics deleteGraphics(Graphics graphics){
+        try {
+            return graphicsRepository.delete(graphics);
+        } catch (GraphicsDeleteException e) {
+            e.printStackTrace();
+        }
+        return graphics;
     }
 
     @Override
     public Graphics updateGraphics(Graphics graphics) {
-        return graphicsRepository.update(graphics);
+        try {
+            return graphicsRepository.update(graphics);
+        } catch (GraphicsUpdateException e) {
+            e.printStackTrace();
+        }
+        return graphics;
     }
 
     @Override

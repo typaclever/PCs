@@ -1,5 +1,7 @@
 package service.user.impl;
 
+import Exeptions.User.UserDeleteException;
+import Exeptions.User.UserUpdateException;
 import lombok.Data;
 import lombok.NonNull;
 import model.user.User;
@@ -25,12 +27,22 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User deleteUser(User user) {
-        return repository.delete(user);
+        try {
+            return repository.delete(user);
+        } catch (UserDeleteException e) {
+            e.printStackTrace();
+        }
+        return user;
     }
 
     @Override
     public User updateUser(User user) {
-        return repository.update(user);
+        try {
+            return repository.update(user);
+        } catch (UserUpdateException e) {
+            e.printStackTrace();
+        }
+        return user;
     }
 
     @Override

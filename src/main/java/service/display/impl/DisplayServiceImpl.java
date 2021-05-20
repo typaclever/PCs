@@ -1,5 +1,7 @@
 package service.display.impl;
 
+import Exeptions.display.DisplayDeleteException;
+import Exeptions.display.DisplayUpdateException;
 import lombok.Data;
 import lombok.NonNull;
 import model.display.Display;
@@ -25,12 +27,22 @@ public class DisplayServiceImpl implements DisplayService {
 
     @Override
     public Display deleteDisplay(Display display) {
-        return displayRepository.delete(display);
+        try {
+            return displayRepository.delete(display);
+        } catch (DisplayDeleteException e) {
+            e.printStackTrace();
+        }
+        return display;
     }
 
     @Override
     public Display updateDisplay(Display display) {
-        return displayRepository.update(display);
+        try {
+            return displayRepository.update(display);
+        } catch (DisplayUpdateException e) {
+            e.printStackTrace();
+        }
+        return display;
     }
 
     @Override

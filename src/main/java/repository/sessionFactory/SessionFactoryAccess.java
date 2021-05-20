@@ -22,8 +22,8 @@ public class SessionFactoryAccess {
         if (sessionFactory == null) {
             Configuration configuration = new Configuration().configure();
             configuration.addAnnotatedClass(Computer.class);
-            configuration.addAnnotatedClass(NoteBook.class);
-            configuration.addAnnotatedClass(SmartPhone.class);
+            //configuration.addAnnotatedClass(NoteBook.class);
+            //configuration.addAnnotatedClass(SmartPhone.class);
             configuration.addAnnotatedClass(Connection.class);
             configuration.addAnnotatedClass(Display.class);
             configuration.addAnnotatedClass(KeyboardAndTouchpad.class);

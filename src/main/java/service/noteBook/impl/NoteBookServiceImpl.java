@@ -1,5 +1,7 @@
 package service.noteBook.impl;
 
+import Exeptions.noteBook.NoteBookDeleteException;
+import Exeptions.noteBook.NoteBookUpdateException;
 import lombok.Data;
 import lombok.NonNull;
 import model.noteBook.NoteBook;
@@ -25,12 +27,22 @@ public class NoteBookServiceImpl implements NoteBookService {
 
     @Override
     public NoteBook deleteNoteBook(NoteBook noteBook) {
-        return noteBookRepository.delete(noteBook);
+        try {
+            return noteBookRepository.delete(noteBook);
+        } catch (NoteBookDeleteException e) {
+            e.printStackTrace();
+        }
+        return noteBook;
     }
 
     @Override
     public NoteBook updateNoteBook(NoteBook noteBook) {
-        return noteBookRepository.update(noteBook);
+        try {
+            return noteBookRepository.update(noteBook);
+        } catch (NoteBookUpdateException e) {
+            e.printStackTrace();
+        }
+        return noteBook;
     }
 
     @Override

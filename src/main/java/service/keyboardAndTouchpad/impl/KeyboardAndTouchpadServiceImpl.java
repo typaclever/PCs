@@ -1,5 +1,7 @@
 package service.keyboardAndTouchpad.impl;
 
+import Exeptions.keyboardAndTouchpad.KeyboardAndTouchpadDeleteException;
+import Exeptions.keyboardAndTouchpad.KeyboardAndTouchpadUpdateException;
 import lombok.Data;
 import lombok.NonNull;
 import model.keyboardAndTouchpad.KeyboardAndTouchpad;
@@ -25,12 +27,22 @@ public class KeyboardAndTouchpadServiceImpl implements KeyboardAndTouchpadServic
 
     @Override
     public KeyboardAndTouchpad deleteKeyboardAndTouchpad(KeyboardAndTouchpad keyboardAndTouchpad) {
-        return keyboardAndTouchpadRepository.delete(keyboardAndTouchpad);
+        try {
+            return keyboardAndTouchpadRepository.delete(keyboardAndTouchpad);
+        } catch (KeyboardAndTouchpadDeleteException e) {
+            e.printStackTrace();
+        }
+        return keyboardAndTouchpad;
     }
 
     @Override
     public KeyboardAndTouchpad updateKeyboardAndTouchpad(KeyboardAndTouchpad keyboardAndTouchpad) {
-        return keyboardAndTouchpadRepository.update(keyboardAndTouchpad);
+        try {
+            return keyboardAndTouchpadRepository.update(keyboardAndTouchpad);
+        } catch (KeyboardAndTouchpadUpdateException e) {
+            e.printStackTrace();
+        }
+        return keyboardAndTouchpad;
     }
 
     @Override

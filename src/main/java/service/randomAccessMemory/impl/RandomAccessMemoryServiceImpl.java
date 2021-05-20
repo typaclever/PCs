@@ -1,5 +1,7 @@
 package service.randomAccessMemory.impl;
 
+import Exeptions.randomAccessMemory.RandomAccessMemoryDeleteException;
+import Exeptions.randomAccessMemory.RandomAccessMemoryUpdateException;
 import lombok.Data;
 import lombok.NonNull;
 import model.randomAccesMemory.RandomAccessMemory;
@@ -25,12 +27,22 @@ public class RandomAccessMemoryServiceImpl implements RandomAccessMemoryService 
 
     @Override
     public RandomAccessMemory deleteRandomAccessMemory(RandomAccessMemory randomAccessMemory) {
-        return repository.delete(randomAccessMemory);
+        try {
+            return repository.delete(randomAccessMemory);
+        } catch (RandomAccessMemoryDeleteException e) {
+            e.printStackTrace();
+        }
+        return randomAccessMemory;
     }
 
     @Override
     public RandomAccessMemory updateRandomAccessMemory(RandomAccessMemory randomAccessMemory) {
-        return repository.update(randomAccessMemory);
+        try {
+            return repository.update(randomAccessMemory);
+        } catch (RandomAccessMemoryUpdateException e) {
+            e.printStackTrace();
+        }
+        return randomAccessMemory;
     }
 
     @Override

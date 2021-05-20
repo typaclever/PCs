@@ -1,5 +1,7 @@
 package service.processor.impl;
 
+import Exeptions.processor.ProcessorDeleteException;
+import Exeptions.processor.ProcessorUpdateException;
 import lombok.Data;
 import lombok.NonNull;
 import model.processor.Processor;
@@ -25,12 +27,22 @@ public class ProcessorServiceImpl implements ProcessorService {
 
     @Override
     public Processor deleteProcessor(Processor processor) {
-        return processorRepository.delete(processor);
+        try {
+            return processorRepository.delete(processor);
+        } catch (ProcessorDeleteException e) {
+            e.printStackTrace();
+        }
+        return processor;
     }
 
     @Override
     public Processor updateProcessor(Processor processor) {
-        return processorRepository.update(processor);
+        try {
+            return processorRepository.update(processor);
+        } catch (ProcessorUpdateException e) {
+            e.printStackTrace();
+        }
+        return processor;
     }
 
     @Override

@@ -1,5 +1,7 @@
 package service.connection.impl;
 
+import Exeptions.computer.ComputerDeleteException;
+import Exeptions.connection.ConnectionUpdateException;
 import lombok.Data;
 import lombok.NonNull;
 import model.connection.Connection;
@@ -26,12 +28,22 @@ public class ConnectionServiceImpl implements ConnectionService {
 
     @Override
     public Connection deleteConnection(Connection connection) {
-        return connectionRepository.delete(connection);
+        try {
+            return connectionRepository.delete(connection);
+        } catch (ComputerDeleteException e) {
+            e.printStackTrace();
+        }
+        return connection;
     }
 
     @Override
     public Connection updateConnection(Connection connection) {
-        return connectionRepository.update(connection);
+        try {
+            return connectionRepository.update(connection);
+        } catch (ConnectionUpdateException e) {
+            e.printStackTrace();
+        }
+        return connection;
     }
 
     @Override

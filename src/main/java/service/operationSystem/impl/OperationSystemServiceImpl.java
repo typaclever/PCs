@@ -1,5 +1,7 @@
 package service.operationSystem.impl;
 
+import Exeptions.operationSystem.OperationSystemDeleteException;
+import Exeptions.operationSystem.OperationSystemUpdateException;
 import lombok.Data;
 import lombok.NonNull;
 import model.computer.Computer;
@@ -26,12 +28,22 @@ public class OperationSystemServiceImpl implements OperationSystemService {
 
     @Override
     public OperationSystem deleteOperationSystem(OperationSystem operationSystem) {
-        return operationSystemRepository.delete(operationSystem);
+        try {
+            return operationSystemRepository.delete(operationSystem);
+        } catch (OperationSystemDeleteException e) {
+            e.printStackTrace();
+        }
+        return operationSystem;
     }
 
     @Override
     public OperationSystem updateOperationSystem(OperationSystem operationSystem) {
-        return operationSystemRepository.update(operationSystem);
+        try {
+            return operationSystemRepository.update(operationSystem);
+        } catch (OperationSystemUpdateException e) {
+            e.printStackTrace();
+        }
+        return operationSystem;
     }
 
     @Override

@@ -1,5 +1,7 @@
 package service.smartPhone.impl;
 
+import Exeptions.smartPhone.SmartPhoneDeleteException;
+import Exeptions.smartPhone.SmartPhoneUpdateException;
 import lombok.Data;
 import lombok.NonNull;
 import model.smartPhone.SmartPhone;
@@ -25,12 +27,22 @@ public class SmartPhoneServiceImpl implements SmartPhoneService {
 
     @Override
     public SmartPhone deleteSmartPhone(SmartPhone smartPhone) {
-        return repository.delete(smartPhone);
+        try {
+            return repository.delete(smartPhone);
+        } catch (SmartPhoneDeleteException e) {
+            e.printStackTrace();
+        }
+        return smartPhone;
     }
 
     @Override
     public SmartPhone updateSmartPhone(SmartPhone smartPhone) {
-        return repository.update(smartPhone);
+        try {
+            return repository.update(smartPhone);
+        } catch (SmartPhoneUpdateException e) {
+            e.printStackTrace();
+        }
+        return smartPhone;
     }
 
     @Override

@@ -1,5 +1,7 @@
 package service.computer.impl;
 
+import Exeptions.computer.ComputerDeleteException;
+import Exeptions.computer.ComputerUpdateException;
 import lombok.Data;
 import lombok.NonNull;
 import model.computer.Computer;
@@ -26,12 +28,22 @@ public class ComputerServiceImpl implements ComputerService {
 
     @Override
     public Computer deleteComputer(Computer computer) {
-        return computerRepository.delete(computer);
+        try {
+            return computerRepository.delete(computer);
+        }catch (ComputerDeleteException cde){
+            cde.printStackTrace();
+        }
+        return computer;
     }
 
     @Override
     public Computer updateComputer(Computer computer) {
-        return computerRepository.update(computer);
+        try {
+            return computerRepository.update(computer);
+        } catch (ComputerUpdateException cue) {
+            cue.printStackTrace();
+        }
+        return computer;
     }
 
     @Override

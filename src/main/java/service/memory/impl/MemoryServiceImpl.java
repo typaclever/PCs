@@ -1,5 +1,7 @@
 package service.memory.impl;
 
+import Exeptions.memory.MemoryDeleteException;
+import Exeptions.memory.MemoryUpdateException;
 import lombok.Data;
 import lombok.NonNull;
 import model.memory.Memory;
@@ -25,12 +27,22 @@ public class MemoryServiceImpl implements MemoryService {
 
     @Override
     public Memory deleteMemory(Memory memory) {
-        return memoryRepository.delete(memory);
+        try {
+            return memoryRepository.delete(memory);
+        } catch (MemoryDeleteException e) {
+            e.printStackTrace();
+        }
+        return memory;
     }
 
     @Override
     public Memory updateMemory(Memory memory) {
-        return memoryRepository.update(memory);
+        try {
+            return memoryRepository.update(memory);
+        } catch (MemoryUpdateException e) {
+            e.printStackTrace();
+        }
+        return memory;
     }
 
     @Override

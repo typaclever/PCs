@@ -1,6 +1,6 @@
 package repository.connection.impl;
 
-import Exeptions.computer.ComputerDeleteException;
+import Exeptions.connection.ConnectionDeleteException;
 import Exeptions.connection.ConnectionUpdateException;
 import model.connection.Connection;
 import org.hibernate.Session;
@@ -36,9 +36,9 @@ public class ConnectionRepositoryImpl implements ConnectionRepository {
     }
 
     @Override
-    public Connection delete(Connection connection) throws ComputerDeleteException {
+    public Connection delete(Connection connection) throws ConnectionDeleteException {
         if (findById(connection.getId()) == null){
-            throw new ComputerDeleteException("There is no connection object with such an id");
+            throw new ConnectionDeleteException("There is no connection object with such an id");
         }
         Session session = SessionFactoryAccess.getSessionFactory().openSession();
         session.beginTransaction();
